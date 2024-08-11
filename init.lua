@@ -87,6 +87,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 require 'custom.settings'
 require 'custom.keymaps'
+require 'custom.commands'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
