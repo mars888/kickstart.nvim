@@ -83,8 +83,9 @@ end
 
 -- Setup powershell as basic shell.
 vim.o.shell = 'powershell.exe'
-vim.o.shellxquote = '"'
-vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+vim.o.shell = shell
+vim.o.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
+vim.o.shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+vim.o.shellpipe = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+vim.o.shellxquote = ''
 vim.o.shellquote = ''
-vim.o.shellpipe = '| Out-File -Encoding UTF8 %s'
-vim.o.shellredir = '| Out-File -Encoding UTF8 %s'
