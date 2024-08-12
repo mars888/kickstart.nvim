@@ -54,4 +54,12 @@ local function start_lazy_git()
   vim.system(cmd, { detach = true })
 end
 
+local function yank_current_path_clipboard()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("*", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard')
+end
+
 vim.api.nvim_create_user_command('LazyGit', start_lazy_git, {})
+
+vim.api.nvim_create_user_command('CopyPath', yank_current_path_clipboard, {})

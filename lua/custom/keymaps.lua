@@ -39,3 +39,6 @@ vim.keymap.set({'i', 'n'}, '<C-S-l>', '<cmd>cbelow<CR>', { desc = 'Move to previ
 
 -- Setup command to open LazyGit.
 vim.keymap.set('n', '<leader>hl', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit for current context' })
+
+-- Setup command to copy path of current buffer.
+vim.keymap.set('n', '<leader>yp', '<cmd>CopyPath<CR>', { desc = 'Copy path of current buffer' })
