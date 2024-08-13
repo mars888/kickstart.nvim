@@ -34,6 +34,7 @@ end, { desc = 'Jump to TreeSitter context' })
 vim.keymap.set({'i', 'n'}, '<C-S-h>', '<cmd>cabove<CR>', { desc = 'Move to next quick fix item' })
 vim.keymap.set({'i', 'n'}, '<C-S-l>', '<cmd>cbelow<CR>', { desc = 'Move to previous quick fix item' })
 
+-- [[ Custom command bindings ]]
 -- Setup command to open LazyGit.
 vim.keymap.set('n', '<leader>hl', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit for current context' })
 
