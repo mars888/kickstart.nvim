@@ -762,6 +762,23 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gan",
+          node_incremental = "gan",
+          scope_incremental = "gac",
+          node_decremental = "gam",
+        }
+      },
+      textobjects = {
+        select = {
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          keymaps = {
+            -- ['af'] = '@function.outer',
+          }
+        }
+      }
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
