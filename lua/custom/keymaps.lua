@@ -16,7 +16,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -31,8 +30,12 @@ vim.keymap.set('n', '[C', function()
   require('treesitter-context').go_to_context(vim.v.count1)
 end, { desc = 'Jump to TreeSitter context' })
 
-vim.keymap.set({'i', 'n'}, '<C-S-h>', '<cmd>cabove<CR>', { desc = 'Move to next quick fix item' })
-vim.keymap.set({'i', 'n'}, '<C-S-l>', '<cmd>cbelow<CR>', { desc = 'Move to previous quick fix item' })
+-- [[ Quickfix keymaps ]]
+vim.keymap.set({ 'i', 'n' }, '<C-S-k>', '<cmd>cnext<CR>', { desc = 'Move to next quick fix item' })
+vim.keymap.set({ 'i', 'n' }, '<C-S-j>', '<cmd>cprev<CR>', { desc = 'Move to previous quick fix item' })
+
+vim.keymap.set({ 'i', 'n' }, '<C-S-h>', '<cmd>cabove<CR>', { desc = 'Move to next quick fix item' })
+vim.keymap.set({ 'i', 'n' }, '<C-S-l>', '<cmd>cbelow<CR>', { desc = 'Move to previous quick fix item' })
 
 -- [[ Custom command bindings ]]
 -- Setup command to open LazyGit.
