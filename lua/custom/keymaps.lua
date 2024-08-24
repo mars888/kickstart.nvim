@@ -37,9 +37,19 @@ vim.keymap.set({ 'i', 'n' }, '<C-S-j>', '<cmd>cprev<CR>', { desc = 'Move to prev
 vim.keymap.set({ 'i', 'n' }, '<C-S-h>', '<cmd>cabove<CR>', { desc = 'Move to next quick fix item' })
 vim.keymap.set({ 'i', 'n' }, '<C-S-l>', '<cmd>cbelow<CR>', { desc = 'Move to previous quick fix item' })
 
+-- [[ Convenciency keymaps ]]
+vim.keymap.set('n', '<leader>eh', '<cmd>edit %:h<CR>', { desc = 'Edit here' })
+vim.keymap.set('n', '<leader>ew', function()
+  local pwd = vim.fn.getcwd()
+  vim.cmd { cmd = 'edit', args = { pwd }}
+end, { desc = 'Edit workspace' })
+
 -- [[ Custom command bindings ]]
 -- Setup command to open LazyGit.
 vim.keymap.set('n', '<leader>hl', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit for current context' })
 
 -- Setup command to copy path of current buffer.
 vim.keymap.set('n', '<leader>yp', '<cmd>CopyPath<CR>', { desc = 'Copy path of current buffer' })
+
+-- [[ Workspace commands for workspaces.nvim ]]
+vim.keymap.set('n', '<leader>wo', '<cmd>WorkspacesOpen<CR>', { desc = 'Open workspace' })
