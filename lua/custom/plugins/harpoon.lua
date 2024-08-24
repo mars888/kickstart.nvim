@@ -2,6 +2,7 @@
 
 return {
   'ThePrimeagen/harpoon',
+  enabled = false,
   branch = 'harpoon2',
   requires = { { 'nvim-lua/plenary.nvim' } },
   keys = {
