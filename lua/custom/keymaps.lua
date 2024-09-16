@@ -48,6 +48,9 @@ end, { desc = 'Edit workspace' })
 -- Setup command to open LazyGit.
 vim.keymap.set('n', '<leader>hl', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit for current context' })
 
+-- Setup command to open NeoGit.
+vim.keymap.set('n', '<leader>hn', '<cmd>Neogit<CR>', { desc = 'Open Neogit for current context' })
+
 -- Setup command to copy path of current buffer.
 vim.keymap.set('n', '<leader>yp', '<cmd>CopyPath<CR>', { desc = 'Copy path of current buffer' })
 
