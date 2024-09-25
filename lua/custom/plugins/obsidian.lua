@@ -27,6 +27,11 @@ return {
       },
     },
 
+    daily_notes = {
+      -- folder = './1. 🗺 Areas/📝 Logs/DailyNotes/2021-01-15.md',
+      folder = "1. 🗺 Areas\\📝 Logs\\DailyNotes"
+    },
+
     follow_url_func = function(url)
       -- print('Opening URL: ' .. url)
       vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows: Open URL in default browser.
