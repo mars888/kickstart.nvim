@@ -1,10 +1,11 @@
 -- https://github.com/epwalsh/obsidian.nvim
 -- Use Obsidian vaults in NeoVim
 
+
+
 return {
   'epwalsh/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
-  lazy = true,
   cmd = { 'ObsidianOpen' },
   ft = 'markdown',
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
@@ -20,11 +21,33 @@ return {
     'nvim-lua/plenary.nvim',
   },
   opts = {
+    enabled = false,
+
     workspaces = {
       {
         name = 'personal',
         path = 'c:\\Projects\\Notes\\colorware_obsidian',
       },
+      {
+        name = "no-vault",
+        path = function()
+          return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
+        end,
+        overrides = {
+          notes_subdir = vim.NIL,
+          templates = {
+            folder = vim.NIL,
+          },
+          -- disable_frontmatter = true,
+          disable_frontmatter = true,
+        }
+      },
+    },
+
+    templates = {
+      folder = 'Templates',
+      date_format = '%Y-%m-%d-%a',
+      time_format = '%H:%M',
     },
 
     daily_notes = {

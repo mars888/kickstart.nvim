@@ -5,7 +5,7 @@ return {
   'otavioschwanck/arrow.nvim',
   opts = {
     show_icons = true,
-    leader_key = 'm',
+    leader_key = '<M-m>',
     buffer_leader_key = '<S-m>',
   }
 }
