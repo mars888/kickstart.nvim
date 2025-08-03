@@ -4,8 +4,9 @@
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
   dependencies = { "nvim-lua/plenary.nvim", branch = "master" }, -- For curl, log and async functions
-  build = "make tiktoken",
+  -- build = "make tiktoken",
   opts = {
+    model = "claude-sonnet-4",
   },
 }
 

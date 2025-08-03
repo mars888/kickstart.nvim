@@ -46,7 +46,7 @@ end, { desc = 'Edit workspace' })
 
 -- [[ Custom command bindings ]]
 -- Setup command to open LazyGit.
-vim.keymap.set('n', '<leader>hl', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit for current context' })
+vim.keymap.set('n', '<leader>hle', '<cmd>LazyGit<CR>', { desc = 'Open LazyGit externally' })
 
 -- Setup command to open NeoGit.
 vim.keymap.set('n', '<leader>hn', '<cmd>Neogit<CR>', { desc = 'Open Neogit for current context' })

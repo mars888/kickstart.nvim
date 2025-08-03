@@ -3,6 +3,10 @@
 -- Set file as title.
 vim.o.title = true
 
+-- Set indent settings.
+-- vim.opt.expandtab = true
+-- vim.opt.smartindent = true
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -84,11 +88,13 @@ if vim.fn.has 'win32' or vim.fn.has 'win64' then
   vim.opt.backupdir = { os.getenv 'LOCALAPPDATA' .. '\\Local\\nvim-data\\backup\\', '.' }
 end
 
--- Setup powershell as basic shell.
-vim.o.shell = 'powershell.exe'
-vim.o.shell = shell
-vim.o.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
-vim.o.shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
-vim.o.shellpipe = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
-vim.o.shellxquote = ''
-vim.o.shellquote = ''
+if vim.fn.has 'win32' then
+  -- Setup powershell as basic shell.
+  vim.o.shell = 'pwsh.exe'
+  vim.o.shellcmdflag =
+    "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
+  vim.o.shellredir = '2>&1 | %%{ "$_" } | Out-File %s; exit $LastExitCode'
+  vim.o.shellpipe = '2>&1 | %%{ "$_" } | tee %s; exit $LastExitCode'
+  vim.o.shellxquote = ''
+  vim.o.shellquote = ''
+end
