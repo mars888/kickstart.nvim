@@ -3,6 +3,9 @@
 -- Set file as title.
 vim.o.title = true
 
+-- Set border around popups.
+vim.o.winborder = 'rounded'
+
 -- Set indent settings.
 -- vim.opt.expandtab = true
 -- vim.opt.smartindent = true

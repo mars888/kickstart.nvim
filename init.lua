@@ -380,7 +380,15 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'mason-org/mason.nvim', opts = {} },
+      {
+        'mason-org/mason.nvim',
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Crashdummyy/mason-registry',
+          },
+        },
+      },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -744,13 +752,24 @@ require('lazy').setup({
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono',
+        nerd_font_variant = 'normal',
       },
 
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = {
+          auto_show = false,
+          auto_show_delay_ms = 500,
+          window = {
+            border = 'rounded',
+          },
+        },
+        menu = {
+          border = 'rounded',
+          draw = { gap = 2 },
+          winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
+        },
       },
 
       sources = {
@@ -761,7 +780,7 @@ require('lazy').setup({
             module = 'blink-cmp-avante',
             name = 'Avante',
             -- opts = { }
-          }
+          },
         },
       },
 
