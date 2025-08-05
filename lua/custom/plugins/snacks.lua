@@ -2,6 +2,15 @@
 -- A collection of small QoL plugins for Neovim.
 -- Use `:checkhealth snacks` to see if everything is set up correctly.
 
+local function toggle_snacks_dim()
+  local dim = require('snacks').dim
+  if dim.enabled then
+    dim.disable()
+  else
+    dim.enable()
+  end
+end
+
 return {
   'folke/snacks.nvim',
   priority = 1000,
@@ -15,6 +24,7 @@ return {
     lazygit = { enabled = true },
     notifier = { enabled = true },
     scope = { enabled = true },
+    scratch = { enabled = true },
   },
   keys = {
     -- LazyGit
@@ -22,10 +32,13 @@ return {
     { "<leader>hll", function() require("snacks").lazygit.log() end, desc = "LazyGit log" },
     { "<leader>hlf", function() require("snacks").lazygit.log_file() end, desc = "LazyGit log file" },
     -- Dim
-    { "<leader>gud", function() require("snacks").dim() end, desc = "Toggle dim" },
+    { "<leader>td", toggle_snacks_dim, desc = "Toggle dim" },
     -- Explorer
     { "\\", function() require("snacks").explorer() end, desc = "Toggle explorer" },
     -- Notifier
     { "<leader>gun", function() require("snacks").notifier() end, desc = "Notification history" },
+    -- Scratch buffer
+    { "<leader>.", function() require("snacks").scratch() end, desc = "Scratch buffer" },
+    { "<leader>S", function() require("snacks").scratch.select() end, desc = "Select scratch buffer" },
   }
 }
