@@ -22,7 +22,7 @@ return {
     explorer = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
-    notifier = { enabled = true },
+    -- notifier = { enabled = true },
     scope = { enabled = true },
     scratch = { enabled = true },
   },

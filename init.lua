@@ -237,6 +237,7 @@ require('lazy').setup({
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>y', group = '[Y]ank' },
         { '<leader>hl', group = '[L]azyGit' },
+        { '<leader>d', group = '[D]ebug' },
       },
     },
   },

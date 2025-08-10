@@ -1,0 +1,9 @@
+-- https://github.com/NicholasMata/nvim-dap-cs
+-- An extension for nvim-dap providing adapter and configurations for launching .NET Core debugger (netcoredbg).
+
+return {
+  'nicholasmata/nvim-dap-cs',
+  dependencies = {
+    'mfussenegger/nvim-dap',
+  },
+}
