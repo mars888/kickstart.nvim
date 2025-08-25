@@ -3,10 +3,12 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+-- vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>Q', vim.diagnostic.setqflist, { desc = 'Open diagnostic [Q]uicfix list (all)' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -54,5 +56,4 @@ vim.keymap.set('n', '<leader>hn', '<cmd>Neogit<CR>', { desc = 'Open Neogit for c
 -- Setup command to copy path of current buffer.
 vim.keymap.set('n', '<leader>yp', '<cmd>CopyPath<CR>', { desc = 'Copy path of current buffer' })
 
--- [[ Workspace commands for workspaces.nvim ]]
-vim.keymap.set('n', '<leader>wo', '<cmd>WorkspacesOpen<CR>', { desc = 'Open workspace' })
+vim.keymap.set('n', '<c-s>', vim.lsp.buf.signature_help, { desc = 'Show signature help' })

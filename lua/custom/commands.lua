@@ -55,11 +55,17 @@ local function start_lazy_git()
 end
 
 local function yank_current_path_clipboard()
-  local path = vim.fn.expand("%")
-  vim.fn.setreg("*", path)
+  local path = vim.fn.expand '%'
+  vim.fn.setreg('*', path)
   vim.notify('Copied "' .. path .. '" to the clipboard')
 end
 
 vim.api.nvim_create_user_command('LazyGit', start_lazy_git, {})
 
 vim.api.nvim_create_user_command('CopyPath', yank_current_path_clipboard, {})
+
+local function fold_using_lsp(_)
+  vim.o.foldmethod = 'expr'
+  vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+end
+vim.api.nvim_create_user_command('FoldUsingLsp', fold_using_lsp, { desc = 'Enable LSP based folding' })

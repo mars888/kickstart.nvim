@@ -80,6 +80,9 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
+-- Break on word boundaries instead of the middle of words.
+vim.opt.linebreak = true
+
 -- -- Show which line your cursor is on
 vim.opt.cursorline = true
 

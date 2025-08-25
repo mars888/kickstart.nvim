@@ -19,7 +19,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     dim = { enabled = true },
-    explorer = { enabled = true },
+    -- explorer = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
     notifier = { enabled = true },
@@ -80,13 +80,13 @@ return {
     -- Dim
     { '<leader>td', toggle_snacks_dim, desc = 'Toggle dim' },
     -- Explorer
-    {
-      '\\',
-      function()
-        require('snacks').explorer()
-      end,
-      desc = 'Toggle explorer',
-    },
+    -- {
+    --   '\\',
+    --   function()
+    --     require('snacks').explorer()
+    --   end,
+    --   desc = 'Toggle explorer',
+    -- },
     -- Notifier
     {
       '<leader>gun',

@@ -21,7 +21,7 @@ return {
     'MunifTanjim/nui.nvim',
     'nvim-telescope/telescope.nvim',
     -- 'hrsh7th/nvim-cmp',
-    'ibhagwan/fzf-lua',
+    -- 'ibhagwan/fzf-lua',
     'zbirenbaum/copilot.lua',
     'folke/snacks.nvim',
     'stevearc/dressing.nvim',

@@ -25,13 +25,13 @@ local colors = {
 
 local conditions = {
   buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+    return vim.fn.empty(vim.fn.expand '%:t') ~= 1
   end,
   hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end,
   check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
+    local filepath = vim.fn.expand '%:p:h'
     local gitdir = vim.fn.finddir('.git', filepath .. ';')
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
@@ -94,6 +94,29 @@ ins_left {
   -- mode component
   function()
     return ''
+    -- local mode_representation = {
+    --   n = 'n',
+    --   i = 'i',
+    --   v = 'v',
+    --   [''] = '^V',
+    --   V = 'V',
+    --   c = 'c',
+    --   no = 'no',
+    --   s = 's',
+    --   S = 'S',
+    --   [''] = '^S',
+    --   ic = 'ic',
+    --   R = 'R',
+    --   Rv = 'Rv',
+    --   cv = 'cv',
+    --   ce = 'ce',
+    --   r = 'r',
+    --   rm = 'rm',
+    --   ['r?'] = 'r?',
+    --   ['!'] = '!',
+    --   t = 't',
+    -- }
+    -- return mode_representation[vim.fn.mode()]
   end,
   color = function()
     -- auto change color according to neovims mode
@@ -220,8 +243,6 @@ ins_right {
   color = { fg = colors.blue },
   padding = { left = 1 },
 }
-
-
 
 return {
   'nvim-lualine/lualine.nvim',
