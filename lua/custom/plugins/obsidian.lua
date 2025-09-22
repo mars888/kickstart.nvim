@@ -1,5 +1,5 @@
 -- Originally: https://github.com/epwalsh/obsidian.nvim
--- New: https://github.coml/obsidian-nvim/obsidian.nvim
+-- New: https://github.com/obsidian-nvim/obsidian.nvim
 -- Use Obsidian vaults in NeoVim
 
 
@@ -7,7 +7,7 @@
 return {
   'obsidian-nvim/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
-  cmd = { 'ObsidianOpen' },
+  cmd = { 'Obsidian' },
   -- ft = 'markdown',
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   event = {
@@ -46,6 +46,8 @@ return {
         }
       },
     },
+
+    disable_frontmatter = true,
 
     templates = {
       folder = 'Templates',

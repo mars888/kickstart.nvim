@@ -174,6 +174,22 @@ ins_left {
   },
 }
 
+-- ins_left {
+--   function()
+--     return '%='
+--   end,
+-- }
+
+ins_left {
+  function()
+    return vim.fn.getcwd()
+  end,
+  icon = ':',
+  color = { fg = '#888888' },
+  padding = { left = 2, right = 0 },
+  cond = conditions.hide_in_width,
+}
+
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left {

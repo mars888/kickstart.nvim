@@ -512,6 +512,8 @@ require('lazy').setup({
         --   },
         -- },
 
+        gh_actions_ls = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -627,14 +629,21 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
         opts = {},
+        config = function()
+          local snippet_path = vim.fn.stdpath 'config' .. '/snippets'
+          print('Loading custom snippets from ' .. snippet_path)
+          require('luasnip.loaders.from_lua').lazy_load {
+            paths = { snippet_path },
+          }
+        end,
       },
       'folke/lazydev.nvim',
       -- Source for Avante

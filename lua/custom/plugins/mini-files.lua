@@ -77,24 +77,24 @@ return {
 
   keys = {
     {
-      '\\',
+      'g\\',
       function()
         local mini = require 'mini.files'
         if not mini.close() then
           mini.open()
         end
       end,
-      desc = 'Open Mini files',
+      desc = 'Open Mini Files',
     },
     {
-      'g\\',
+      '\\',
       function()
         local mini = require 'mini.files'
         if not mini.close() then
           mini.open(vim.api.nvim_buf_get_name(0))
         end
       end,
-    desc = 'Open Mini files in context'
+    desc = 'Open Mini Files in context'
     },
   },
 
@@ -110,8 +110,8 @@ return {
         vim.keymap.set('n', 'go', open_with_system, { buffer = b, desc = 'OS open' })
         vim.keymap.set('n', 'gp', toggle_preview, { buffer = b, desc = 'Toggle preview' })
         vim.keymap.set('n', 'gh', cd_to_directory, { buffer = b, desc = 'Change root ([G]o [H]ere)' })
-        vim.keymap.set('n', '<C-s>', open_in_split, { buffer = b, desc = 'Split' })
-        vim.keymap.set('n', '<C-v>', open_in_vsplit, { buffer = b, desc = 'Split' })
+        vim.keymap.set('n', '<C-s>', open_in_split, { buffer = b, desc = 'Split horizontal' })
+        vim.keymap.set('n', '<C-v>', open_in_vsplit, { buffer = b, desc = 'Split vertical' })
         vim.keymap.set('n', '<C-t>', open_in_new_tab, { buffer = b, desc = 'Open in new tab' })
       end,
     })

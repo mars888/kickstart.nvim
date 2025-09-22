@@ -57,3 +57,4 @@ vim.keymap.set('n', '<leader>hn', '<cmd>Neogit<CR>', { desc = 'Open Neogit for c
 vim.keymap.set('n', '<leader>yp', '<cmd>CopyPath<CR>', { desc = 'Copy path of current buffer' })
 
 vim.keymap.set('n', '<c-s>', vim.lsp.buf.signature_help, { desc = 'Show signature help' })
+vim.keymap.set('i', '<c-s-space>', vim.lsp.buf.signature_help, { desc = 'Show signature help' })
