@@ -17,7 +17,11 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Setup GUI other font.
-vim.o.guifont = 'IosevkaTerm Nerd Font:h11'
+if vim.fn.has 'win32' ~= 0 then
+  vim.o.guifont = 'IosevkaTerm Nerd Font:h11'
+else
+  vim.o.guifont = 'AdwaitaMono Nerd Font:h14'
+end
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -90,11 +94,11 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 2
 
 -- Do not store backup files in the same folder as the file being edited.
-if vim.fn.has 'win32' or vim.fn.has 'win64' then
+if vim.fn.has 'win32' ~= 0 or vim.fn.has 'win64' ~= 0 then
   vim.opt.backupdir = { os.getenv 'LOCALAPPDATA' .. '\\Local\\nvim-data\\backup\\', '.' }
 end
 
-if vim.fn.has 'win32' then
+if vim.fn.has 'win32' ~= 0 then
   -- Setup powershell as basic shell.
   vim.o.shell = 'pwsh.exe'
   vim.o.shellcmdflag =

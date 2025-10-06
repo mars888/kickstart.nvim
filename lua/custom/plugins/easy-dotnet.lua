@@ -9,7 +9,11 @@ return {
   },
   config = function()
     local edotnet = require 'easy-dotnet'
-    edotnet.setup()
+    edotnet.setup {
+      lsp = {
+        enabled = false,
+      },
+    }
 
     local build = function()
       require('easy-dotnet.actions').build(nil, false)

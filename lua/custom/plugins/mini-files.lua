@@ -94,12 +94,17 @@ return {
           mini.open(vim.api.nvim_buf_get_name(0))
         end
       end,
-    desc = 'Open Mini Files in context'
+      desc = 'Open Mini Files in context',
     },
   },
 
   config = function(_)
-    require('mini.files').setup { windows = { preview = true, width_preview = 100 } }
+    require('mini.files').setup {
+      windows = {
+        preview = true,
+        width_preview = 75,
+      },
+    }
 
     vim.api.nvim_create_autocmd('User', {
       pattern = 'MiniFilesBufferCreate',
