@@ -13,7 +13,6 @@ return {
       lsp = {
         enabled = false,
       },
-    }
       --   server = {
       --     log_level = 'Verbose',
       --   },
