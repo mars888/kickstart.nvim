@@ -90,6 +90,7 @@ require 'custom.keymaps'
 require 'custom.commands'
 require 'custom.filetypes'
 require('custom_plugins.floating_term').setup {}
+require 'custom_plugins.presenterm'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -646,8 +647,8 @@ require('lazy').setup({
         end,
       },
       'folke/lazydev.nvim',
-      -- Source for Avante
-      'Kaiser-Yang/blink-cmp-avante',
+      -- -- Source for Avante
+      -- 'Kaiser-Yang/blink-cmp-avante',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -716,13 +717,26 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'avante', 'lsp', 'path', 'snippets', 'lazydev' },
+        default = {
+          -- 'avante',
+          'lsp',
+          'path',
+          'snippets',
+          'lazydev',
+        },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          avante = {
-            module = 'blink-cmp-avante',
-            name = 'Avante',
-            -- opts = { }
+          -- avante = {
+          --   module = 'blink-cmp-avante',
+          --   name = 'Avante',
+          --   -- opts = { }
+          -- },
+          ['easy-dotnet'] = {
+            name = 'easy-dotnet',
+            enabled = true,
+            module = 'easy-dotnet.completion.blink',
+            score_offset = 10000,
+            async = true,
           },
         },
       },

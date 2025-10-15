@@ -14,6 +14,16 @@ return {
         enabled = false,
       },
     }
+      --   server = {
+      --     log_level = 'Verbose',
+      --   },
+      --@type TestRunnerOptions
+      test_runner = {
+        mappings = {
+          debug_test = { lhs = '<leader>dt', desc = 'debug test' },
+        },
+      },
+    }
 
     local build = function()
       require('easy-dotnet.actions').build(nil, false)
@@ -34,6 +44,7 @@ return {
         vim.keymap.set({ 'n', 'i' }, '<C-S-m>', function()
           vim.cmd.make()
         end, { desc = 'Make' })
+        vim.keymap.set({ 'n' }, '<leader>dr', edotnet.testrunner, { desc = 'Toggle EasyDotnet testrunner' })
 
         -- Set compiler:
         vim.cmd.compiler 'dotnet'

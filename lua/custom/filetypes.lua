@@ -1,5 +1,6 @@
-vim.filetype.add({
+vim.filetype.add {
   extension = {
-    nuspec = 'xml'
-  }
-})
+    nuspec = 'xml',
+    xaml = 'xml',
+  },
+}
